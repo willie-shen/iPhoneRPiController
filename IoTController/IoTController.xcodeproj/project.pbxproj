@@ -7,66 +7,66 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2FB407352450F71D000681B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB407342450F71D000681B2 /* AppDelegate.swift */; };
-		2FB407372450F71D000681B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB407362450F71D000681B2 /* SceneDelegate.swift */; };
-		2FB407392450F71D000681B2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB407382450F71D000681B2 /* ContentView.swift */; };
-		2FB4073B2450F721000681B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FB4073A2450F721000681B2 /* Assets.xcassets */; };
-		2FB4073E2450F721000681B2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FB4073D2450F721000681B2 /* Preview Assets.xcassets */; };
-		2FB407412450F721000681B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FB4073F2450F721000681B2 /* LaunchScreen.storyboard */; };
-		2FB4074C2450F721000681B2 /* IoTControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB4074B2450F721000681B2 /* IoTControllerTests.swift */; };
-		2FB407572450F721000681B2 /* IoTControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB407562450F721000681B2 /* IoTControllerUITests.swift */; };
+		2FB407712450FB1C000681B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB407702450FB1C000681B2 /* AppDelegate.swift */; };
+		2FB407732450FB1C000681B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB407722450FB1C000681B2 /* SceneDelegate.swift */; };
+		2FB407752450FB1C000681B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB407742450FB1C000681B2 /* ViewController.swift */; };
+		2FB407782450FB1C000681B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FB407762450FB1C000681B2 /* Main.storyboard */; };
+		2FB4077A2450FB1F000681B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FB407792450FB1F000681B2 /* Assets.xcassets */; };
+		2FB4077D2450FB1F000681B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FB4077B2450FB1F000681B2 /* LaunchScreen.storyboard */; };
+		2FB407882450FB1F000681B2 /* IoTControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB407872450FB1F000681B2 /* IoTControllerTests.swift */; };
+		2FB407932450FB1F000681B2 /* IoTControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB407922450FB1F000681B2 /* IoTControllerUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2FB407482450F721000681B2 /* PBXContainerItemProxy */ = {
+		2FB407842450FB1F000681B2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2FB407292450F71D000681B2 /* Project object */;
+			containerPortal = 2FB407652450FB1C000681B2 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 2FB407302450F71D000681B2;
+			remoteGlobalIDString = 2FB4076C2450FB1C000681B2;
 			remoteInfo = IoTController;
 		};
-		2FB407532450F721000681B2 /* PBXContainerItemProxy */ = {
+		2FB4078F2450FB1F000681B2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2FB407292450F71D000681B2 /* Project object */;
+			containerPortal = 2FB407652450FB1C000681B2 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 2FB407302450F71D000681B2;
+			remoteGlobalIDString = 2FB4076C2450FB1C000681B2;
 			remoteInfo = IoTController;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2FB407312450F71D000681B2 /* IoTController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IoTController.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2FB407342450F71D000681B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2FB407362450F71D000681B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2FB407382450F71D000681B2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		2FB4073A2450F721000681B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2FB4073D2450F721000681B2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		2FB407402450F721000681B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		2FB407422450F721000681B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2FB407472450F721000681B2 /* IoTControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IoTControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2FB4074B2450F721000681B2 /* IoTControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IoTControllerTests.swift; sourceTree = "<group>"; };
-		2FB4074D2450F721000681B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2FB407522450F721000681B2 /* IoTControllerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IoTControllerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2FB407562450F721000681B2 /* IoTControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IoTControllerUITests.swift; sourceTree = "<group>"; };
-		2FB407582450F721000681B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FB4076D2450FB1C000681B2 /* IoTController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IoTController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FB407702450FB1C000681B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2FB407722450FB1C000681B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		2FB407742450FB1C000681B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2FB407772450FB1C000681B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2FB407792450FB1F000681B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2FB4077C2450FB1F000681B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2FB4077E2450FB1F000681B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FB407832450FB1F000681B2 /* IoTControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IoTControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FB407872450FB1F000681B2 /* IoTControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IoTControllerTests.swift; sourceTree = "<group>"; };
+		2FB407892450FB1F000681B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FB4078E2450FB1F000681B2 /* IoTControllerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IoTControllerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FB407922450FB1F000681B2 /* IoTControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IoTControllerUITests.swift; sourceTree = "<group>"; };
+		2FB407942450FB1F000681B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2FB4072E2450F71D000681B2 /* Frameworks */ = {
+		2FB4076A2450FB1C000681B2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2FB407442450F721000681B2 /* Frameworks */ = {
+		2FB407802450FB1F000681B2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2FB4074F2450F721000681B2 /* Frameworks */ = {
+		2FB4078B2450FB1F000681B2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -76,62 +76,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2FB407282450F71D000681B2 = {
+		2FB407642450FB1C000681B2 = {
 			isa = PBXGroup;
 			children = (
-				2FB407332450F71D000681B2 /* IoTController */,
-				2FB4074A2450F721000681B2 /* IoTControllerTests */,
-				2FB407552450F721000681B2 /* IoTControllerUITests */,
-				2FB407322450F71D000681B2 /* Products */,
+				2FB4076F2450FB1C000681B2 /* IoTController */,
+				2FB407862450FB1F000681B2 /* IoTControllerTests */,
+				2FB407912450FB1F000681B2 /* IoTControllerUITests */,
+				2FB4076E2450FB1C000681B2 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		2FB407322450F71D000681B2 /* Products */ = {
+		2FB4076E2450FB1C000681B2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2FB407312450F71D000681B2 /* IoTController.app */,
-				2FB407472450F721000681B2 /* IoTControllerTests.xctest */,
-				2FB407522450F721000681B2 /* IoTControllerUITests.xctest */,
+				2FB4076D2450FB1C000681B2 /* IoTController.app */,
+				2FB407832450FB1F000681B2 /* IoTControllerTests.xctest */,
+				2FB4078E2450FB1F000681B2 /* IoTControllerUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2FB407332450F71D000681B2 /* IoTController */ = {
+		2FB4076F2450FB1C000681B2 /* IoTController */ = {
 			isa = PBXGroup;
 			children = (
-				2FB407342450F71D000681B2 /* AppDelegate.swift */,
-				2FB407362450F71D000681B2 /* SceneDelegate.swift */,
-				2FB407382450F71D000681B2 /* ContentView.swift */,
-				2FB4073A2450F721000681B2 /* Assets.xcassets */,
-				2FB4073F2450F721000681B2 /* LaunchScreen.storyboard */,
-				2FB407422450F721000681B2 /* Info.plist */,
-				2FB4073C2450F721000681B2 /* Preview Content */,
+				2FB407702450FB1C000681B2 /* AppDelegate.swift */,
+				2FB407722450FB1C000681B2 /* SceneDelegate.swift */,
+				2FB407742450FB1C000681B2 /* ViewController.swift */,
+				2FB407762450FB1C000681B2 /* Main.storyboard */,
+				2FB407792450FB1F000681B2 /* Assets.xcassets */,
+				2FB4077B2450FB1F000681B2 /* LaunchScreen.storyboard */,
+				2FB4077E2450FB1F000681B2 /* Info.plist */,
 			);
 			path = IoTController;
 			sourceTree = "<group>";
 		};
-		2FB4073C2450F721000681B2 /* Preview Content */ = {
+		2FB407862450FB1F000681B2 /* IoTControllerTests */ = {
 			isa = PBXGroup;
 			children = (
-				2FB4073D2450F721000681B2 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		2FB4074A2450F721000681B2 /* IoTControllerTests */ = {
-			isa = PBXGroup;
-			children = (
-				2FB4074B2450F721000681B2 /* IoTControllerTests.swift */,
-				2FB4074D2450F721000681B2 /* Info.plist */,
+				2FB407872450FB1F000681B2 /* IoTControllerTests.swift */,
+				2FB407892450FB1F000681B2 /* Info.plist */,
 			);
 			path = IoTControllerTests;
 			sourceTree = "<group>";
 		};
-		2FB407552450F721000681B2 /* IoTControllerUITests */ = {
+		2FB407912450FB1F000681B2 /* IoTControllerUITests */ = {
 			isa = PBXGroup;
 			children = (
-				2FB407562450F721000681B2 /* IoTControllerUITests.swift */,
-				2FB407582450F721000681B2 /* Info.plist */,
+				2FB407922450FB1F000681B2 /* IoTControllerUITests.swift */,
+				2FB407942450FB1F000681B2 /* Info.plist */,
 			);
 			path = IoTControllerUITests;
 			sourceTree = "<group>";
@@ -139,13 +131,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2FB407302450F71D000681B2 /* IoTController */ = {
+		2FB4076C2450FB1C000681B2 /* IoTController */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2FB4075B2450F721000681B2 /* Build configuration list for PBXNativeTarget "IoTController" */;
+			buildConfigurationList = 2FB407972450FB1F000681B2 /* Build configuration list for PBXNativeTarget "IoTController" */;
 			buildPhases = (
-				2FB4072D2450F71D000681B2 /* Sources */,
-				2FB4072E2450F71D000681B2 /* Frameworks */,
-				2FB4072F2450F71D000681B2 /* Resources */,
+				2FB407692450FB1C000681B2 /* Sources */,
+				2FB4076A2450FB1C000681B2 /* Frameworks */,
+				2FB4076B2450FB1C000681B2 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -153,69 +145,69 @@
 			);
 			name = IoTController;
 			productName = IoTController;
-			productReference = 2FB407312450F71D000681B2 /* IoTController.app */;
+			productReference = 2FB4076D2450FB1C000681B2 /* IoTController.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2FB407462450F721000681B2 /* IoTControllerTests */ = {
+		2FB407822450FB1F000681B2 /* IoTControllerTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2FB4075E2450F721000681B2 /* Build configuration list for PBXNativeTarget "IoTControllerTests" */;
+			buildConfigurationList = 2FB4079A2450FB1F000681B2 /* Build configuration list for PBXNativeTarget "IoTControllerTests" */;
 			buildPhases = (
-				2FB407432450F721000681B2 /* Sources */,
-				2FB407442450F721000681B2 /* Frameworks */,
-				2FB407452450F721000681B2 /* Resources */,
+				2FB4077F2450FB1F000681B2 /* Sources */,
+				2FB407802450FB1F000681B2 /* Frameworks */,
+				2FB407812450FB1F000681B2 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				2FB407492450F721000681B2 /* PBXTargetDependency */,
+				2FB407852450FB1F000681B2 /* PBXTargetDependency */,
 			);
 			name = IoTControllerTests;
 			productName = IoTControllerTests;
-			productReference = 2FB407472450F721000681B2 /* IoTControllerTests.xctest */;
+			productReference = 2FB407832450FB1F000681B2 /* IoTControllerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		2FB407512450F721000681B2 /* IoTControllerUITests */ = {
+		2FB4078D2450FB1F000681B2 /* IoTControllerUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2FB407612450F721000681B2 /* Build configuration list for PBXNativeTarget "IoTControllerUITests" */;
+			buildConfigurationList = 2FB4079D2450FB1F000681B2 /* Build configuration list for PBXNativeTarget "IoTControllerUITests" */;
 			buildPhases = (
-				2FB4074E2450F721000681B2 /* Sources */,
-				2FB4074F2450F721000681B2 /* Frameworks */,
-				2FB407502450F721000681B2 /* Resources */,
+				2FB4078A2450FB1F000681B2 /* Sources */,
+				2FB4078B2450FB1F000681B2 /* Frameworks */,
+				2FB4078C2450FB1F000681B2 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				2FB407542450F721000681B2 /* PBXTargetDependency */,
+				2FB407902450FB1F000681B2 /* PBXTargetDependency */,
 			);
 			name = IoTControllerUITests;
 			productName = IoTControllerUITests;
-			productReference = 2FB407522450F721000681B2 /* IoTControllerUITests.xctest */;
+			productReference = 2FB4078E2450FB1F000681B2 /* IoTControllerUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		2FB407292450F71D000681B2 /* Project object */ = {
+		2FB407652450FB1C000681B2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1140;
 				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = "Willie Shen";
 				TargetAttributes = {
-					2FB407302450F71D000681B2 = {
+					2FB4076C2450FB1C000681B2 = {
 						CreatedOnToolsVersion = 11.4;
 					};
-					2FB407462450F721000681B2 = {
+					2FB407822450FB1F000681B2 = {
 						CreatedOnToolsVersion = 11.4;
-						TestTargetID = 2FB407302450F71D000681B2;
+						TestTargetID = 2FB4076C2450FB1C000681B2;
 					};
-					2FB407512450F721000681B2 = {
+					2FB4078D2450FB1F000681B2 = {
 						CreatedOnToolsVersion = 11.4;
-						TestTargetID = 2FB407302450F71D000681B2;
+						TestTargetID = 2FB4076C2450FB1C000681B2;
 					};
 				};
 			};
-			buildConfigurationList = 2FB4072C2450F71D000681B2 /* Build configuration list for PBXProject "IoTController" */;
+			buildConfigurationList = 2FB407682450FB1C000681B2 /* Build configuration list for PBXProject "IoTController" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -223,37 +215,37 @@
 				en,
 				Base,
 			);
-			mainGroup = 2FB407282450F71D000681B2;
-			productRefGroup = 2FB407322450F71D000681B2 /* Products */;
+			mainGroup = 2FB407642450FB1C000681B2;
+			productRefGroup = 2FB4076E2450FB1C000681B2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2FB407302450F71D000681B2 /* IoTController */,
-				2FB407462450F721000681B2 /* IoTControllerTests */,
-				2FB407512450F721000681B2 /* IoTControllerUITests */,
+				2FB4076C2450FB1C000681B2 /* IoTController */,
+				2FB407822450FB1F000681B2 /* IoTControllerTests */,
+				2FB4078D2450FB1F000681B2 /* IoTControllerUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		2FB4072F2450F71D000681B2 /* Resources */ = {
+		2FB4076B2450FB1C000681B2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2FB407412450F721000681B2 /* LaunchScreen.storyboard in Resources */,
-				2FB4073E2450F721000681B2 /* Preview Assets.xcassets in Resources */,
-				2FB4073B2450F721000681B2 /* Assets.xcassets in Resources */,
+				2FB4077D2450FB1F000681B2 /* LaunchScreen.storyboard in Resources */,
+				2FB4077A2450FB1F000681B2 /* Assets.xcassets in Resources */,
+				2FB407782450FB1C000681B2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2FB407452450F721000681B2 /* Resources */ = {
+		2FB407812450FB1F000681B2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2FB407502450F721000681B2 /* Resources */ = {
+		2FB4078C2450FB1F000681B2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -263,52 +255,60 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2FB4072D2450F71D000681B2 /* Sources */ = {
+		2FB407692450FB1C000681B2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2FB407352450F71D000681B2 /* AppDelegate.swift in Sources */,
-				2FB407372450F71D000681B2 /* SceneDelegate.swift in Sources */,
-				2FB407392450F71D000681B2 /* ContentView.swift in Sources */,
+				2FB407752450FB1C000681B2 /* ViewController.swift in Sources */,
+				2FB407712450FB1C000681B2 /* AppDelegate.swift in Sources */,
+				2FB407732450FB1C000681B2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2FB407432450F721000681B2 /* Sources */ = {
+		2FB4077F2450FB1F000681B2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2FB4074C2450F721000681B2 /* IoTControllerTests.swift in Sources */,
+				2FB407882450FB1F000681B2 /* IoTControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2FB4074E2450F721000681B2 /* Sources */ = {
+		2FB4078A2450FB1F000681B2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2FB407572450F721000681B2 /* IoTControllerUITests.swift in Sources */,
+				2FB407932450FB1F000681B2 /* IoTControllerUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2FB407492450F721000681B2 /* PBXTargetDependency */ = {
+		2FB407852450FB1F000681B2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2FB407302450F71D000681B2 /* IoTController */;
-			targetProxy = 2FB407482450F721000681B2 /* PBXContainerItemProxy */;
+			target = 2FB4076C2450FB1C000681B2 /* IoTController */;
+			targetProxy = 2FB407842450FB1F000681B2 /* PBXContainerItemProxy */;
 		};
-		2FB407542450F721000681B2 /* PBXTargetDependency */ = {
+		2FB407902450FB1F000681B2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2FB407302450F71D000681B2 /* IoTController */;
-			targetProxy = 2FB407532450F721000681B2 /* PBXContainerItemProxy */;
+			target = 2FB4076C2450FB1C000681B2 /* IoTController */;
+			targetProxy = 2FB4078F2450FB1F000681B2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		2FB4073F2450F721000681B2 /* LaunchScreen.storyboard */ = {
+		2FB407762450FB1C000681B2 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2FB407402450F721000681B2 /* Base */,
+				2FB407772450FB1C000681B2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2FB4077B2450FB1F000681B2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2FB4077C2450FB1F000681B2 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -316,7 +316,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		2FB407592450F721000681B2 /* Debug */ = {
+		2FB407952450FB1F000681B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -376,7 +376,7 @@
 			};
 			name = Debug;
 		};
-		2FB4075A2450F721000681B2 /* Release */ = {
+		2FB407962450FB1F000681B2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -430,13 +430,11 @@
 			};
 			name = Release;
 		};
-		2FB4075C2450F721000681B2 /* Debug */ = {
+		2FB407982450FB1F000681B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"IoTController/Preview Content\"";
-				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = IoTController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -449,13 +447,11 @@
 			};
 			name = Debug;
 		};
-		2FB4075D2450F721000681B2 /* Release */ = {
+		2FB407992450FB1F000681B2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"IoTController/Preview Content\"";
-				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = IoTController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -468,7 +464,7 @@
 			};
 			name = Release;
 		};
-		2FB4075F2450F721000681B2 /* Debug */ = {
+		2FB4079B2450FB1F000681B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -489,7 +485,7 @@
 			};
 			name = Debug;
 		};
-		2FB407602450F721000681B2 /* Release */ = {
+		2FB4079C2450FB1F000681B2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -510,7 +506,7 @@
 			};
 			name = Release;
 		};
-		2FB407622450F721000681B2 /* Debug */ = {
+		2FB4079E2450FB1F000681B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -529,7 +525,7 @@
 			};
 			name = Debug;
 		};
-		2FB407632450F721000681B2 /* Release */ = {
+		2FB4079F2450FB1F000681B2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -551,43 +547,43 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2FB4072C2450F71D000681B2 /* Build configuration list for PBXProject "IoTController" */ = {
+		2FB407682450FB1C000681B2 /* Build configuration list for PBXProject "IoTController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2FB407592450F721000681B2 /* Debug */,
-				2FB4075A2450F721000681B2 /* Release */,
+				2FB407952450FB1F000681B2 /* Debug */,
+				2FB407962450FB1F000681B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2FB4075B2450F721000681B2 /* Build configuration list for PBXNativeTarget "IoTController" */ = {
+		2FB407972450FB1F000681B2 /* Build configuration list for PBXNativeTarget "IoTController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2FB4075C2450F721000681B2 /* Debug */,
-				2FB4075D2450F721000681B2 /* Release */,
+				2FB407982450FB1F000681B2 /* Debug */,
+				2FB407992450FB1F000681B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2FB4075E2450F721000681B2 /* Build configuration list for PBXNativeTarget "IoTControllerTests" */ = {
+		2FB4079A2450FB1F000681B2 /* Build configuration list for PBXNativeTarget "IoTControllerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2FB4075F2450F721000681B2 /* Debug */,
-				2FB407602450F721000681B2 /* Release */,
+				2FB4079B2450FB1F000681B2 /* Debug */,
+				2FB4079C2450FB1F000681B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2FB407612450F721000681B2 /* Build configuration list for PBXNativeTarget "IoTControllerUITests" */ = {
+		2FB4079D2450FB1F000681B2 /* Build configuration list for PBXNativeTarget "IoTControllerUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2FB407622450F721000681B2 /* Debug */,
-				2FB407632450F721000681B2 /* Release */,
+				2FB4079E2450FB1F000681B2 /* Debug */,
+				2FB4079F2450FB1F000681B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 2FB407292450F71D000681B2 /* Project object */;
+	rootObject = 2FB407652450FB1C000681B2 /* Project object */;
 }
