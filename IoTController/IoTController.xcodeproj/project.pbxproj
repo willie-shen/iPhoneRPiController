@@ -15,6 +15,7 @@
 		2FB4077D2450FB1F000681B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FB4077B2450FB1F000681B2 /* LaunchScreen.storyboard */; };
 		2FB407882450FB1F000681B2 /* IoTControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB407872450FB1F000681B2 /* IoTControllerTests.swift */; };
 		2FB407932450FB1F000681B2 /* IoTControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB407922450FB1F000681B2 /* IoTControllerUITests.swift */; };
+		BD898F5608872B82EB99815C /* Pods_IoTController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1246B6CAE0A593D609BE3A89 /* Pods_IoTController.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1246B6CAE0A593D609BE3A89 /* Pods_IoTController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IoTController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FB4076D2450FB1C000681B2 /* IoTController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IoTController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FB407702450FB1C000681B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FB407722450FB1C000681B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +51,8 @@
 		2FB4078E2450FB1F000681B2 /* IoTControllerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IoTControllerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FB407922450FB1F000681B2 /* IoTControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IoTControllerUITests.swift; sourceTree = "<group>"; };
 		2FB407942450FB1F000681B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC7D4DB085AD1B667BE93ADB /* Pods-IoTController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IoTController.release.xcconfig"; path = "Target Support Files/Pods-IoTController/Pods-IoTController.release.xcconfig"; sourceTree = "<group>"; };
+		F83A4B31675B5F3D5435E032 /* Pods-IoTController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IoTController.debug.xcconfig"; path = "Target Support Files/Pods-IoTController/Pods-IoTController.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD898F5608872B82EB99815C /* Pods_IoTController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +88,8 @@
 				2FB407862450FB1F000681B2 /* IoTControllerTests */,
 				2FB407912450FB1F000681B2 /* IoTControllerUITests */,
 				2FB4076E2450FB1C000681B2 /* Products */,
+				8D79EDB400AE5BFF89A4AEBE /* Pods */,
+				98F4649884F8E60FAA58B3E5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,6 +135,24 @@
 			path = IoTControllerUITests;
 			sourceTree = "<group>";
 		};
+		8D79EDB400AE5BFF89A4AEBE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F83A4B31675B5F3D5435E032 /* Pods-IoTController.debug.xcconfig */,
+				AC7D4DB085AD1B667BE93ADB /* Pods-IoTController.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		98F4649884F8E60FAA58B3E5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1246B6CAE0A593D609BE3A89 /* Pods_IoTController.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +160,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2FB407972450FB1F000681B2 /* Build configuration list for PBXNativeTarget "IoTController" */;
 			buildPhases = (
+				C50AFAD0B08C35DD072B21B8 /* [CP] Check Pods Manifest.lock */,
 				2FB407692450FB1C000681B2 /* Sources */,
 				2FB4076A2450FB1C000681B2 /* Frameworks */,
 				2FB4076B2450FB1C000681B2 /* Resources */,
+				5425D6FDAE70823F965A198D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -253,6 +280,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5425D6FDAE70823F965A198D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IoTController/Pods-IoTController-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IoTController/Pods-IoTController-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IoTController/Pods-IoTController-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C50AFAD0B08C35DD072B21B8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IoTController-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2FB407692450FB1C000681B2 /* Sources */ = {
@@ -432,6 +501,7 @@
 		};
 		2FB407982450FB1F000681B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F83A4B31675B5F3D5435E032 /* Pods-IoTController.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -449,6 +519,7 @@
 		};
 		2FB407992450FB1F000681B2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC7D4DB085AD1B667BE93ADB /* Pods-IoTController.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
