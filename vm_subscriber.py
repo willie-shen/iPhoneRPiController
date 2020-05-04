@@ -13,10 +13,12 @@ import _thread #https://raspberrypi.stackexchange.com/questions/22444/importerro
 
 PORT = 4
 
-global voltageVal
+#global voltageVal
 voltageVal = 0
 
 def dim():
+
+    global voltageVal
     if voltageVal != 0:
         voltageVal -= 1;
         time.sleep(10)
