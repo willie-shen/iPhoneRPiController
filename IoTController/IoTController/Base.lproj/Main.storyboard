@@ -21,23 +21,33 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="85u-qu-S4D">
-                                <rect key="frame" x="160" y="533" width="94" height="32"/>
-                            </stepper>
+                            <slider opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Qll-Nq-P59">
+                                <rect key="frame" x="73" y="516" width="268" height="30"/>
+                                <connections>
+                                    <action selector="valueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="lJM-yr-V2d"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="Qll-Nq-P59" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="55P-QR-WJf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Qll-Nq-P59" secondAttribute="bottom" constant="317" id="5yb-7E-hBw"/>
+                            <constraint firstItem="Qll-Nq-P59" firstAttribute="top" secondItem="0mq-iu-mmI" secondAttribute="bottom" constant="76" id="7Ts-BX-F4G"/>
                             <constraint firstItem="0mq-iu-mmI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="343" id="NKX-He-Nql"/>
-                            <constraint firstItem="85u-qu-S4D" firstAttribute="top" secondItem="0mq-iu-mmI" secondAttribute="bottom" constant="93" id="Rk8-MS-pHD"/>
-                            <constraint firstItem="85u-qu-S4D" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="S2H-pI-CXx"/>
                             <constraint firstItem="0mq-iu-mmI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lJe-2a-jJz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Qll-Nq-P59" secondAttribute="trailing" constant="75" id="lPd-Ht-i4M"/>
+                            <constraint firstItem="Qll-Nq-P59" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="75" id="v8I-8r-tY3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="adjuster" destination="Qll-Nq-P59" id="DIr-i4-Qht"/>
+                        <outlet property="brightness" destination="0mq-iu-mmI" id="4rW-NU-tHF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="108"/>
+            <point key="canvasLocation" x="131.8840579710145" y="107.8125"/>
         </scene>
     </scenes>
 </document>
