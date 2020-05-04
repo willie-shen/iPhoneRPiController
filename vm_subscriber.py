@@ -22,6 +22,7 @@ def dim():
     global voltageVal
     
     while True:
+        print("Running")
         if voltageVal != 0:
             voltageVal -= 1
             print("Light Value: {}".format(voltageVal))
