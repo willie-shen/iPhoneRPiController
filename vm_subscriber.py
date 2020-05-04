@@ -16,16 +16,17 @@ PORT = 4
 #global voltageVal
 voltageVal = 0
 
-def dim():
+def dim(client):
 
     print("Dim function activated")
     global voltageVal
-    
+    #https://www.geeksforgeeks.org/global-local-variables-python/
     while True:
         print("Running")
         if voltageVal != 0:
             voltageVal -= 1
             print("Light Value: {}".format(voltageVal))
+            client.publish("dimUpdate", voltageVal)
         time.sleep(1)
             
 def on_connect(client, userdata, flags, rc):
@@ -50,7 +51,7 @@ if __name__ == '__main__':
     client.connect(host="eclipse.usc.edu", port=11000, keepalive=60)
     client.loop_start()
 
-    _thread.start_new_thread(dim, ()) #https://www.tutorialspoint.com/python3/python_multithreading.htm
+    _thread.start_new_thread(dim, (client)) #https://www.tutorialspoint.com/python3/python_multithreading.htm
     
     while True:
         

@@ -37,9 +37,24 @@ class ViewController: UIViewController {
 
         // ...
         mqtt.subscribe("buttonpress")
+        mqtt.subscribe("dimUpdate")
         
         mqtt.didReceiveMessage = { mqtt, message, id in
-            print("Message received in topic \(message.topic) with payload \(message.string!)")
+            
+            if(message.topic == "buttonpress"){
+                
+                //https://www.hackingwithswift.com/example-code/language/how-to-convert-data-to-a-string
+                var voltage:Int = Int(String(decoding:message.payload, as:UTF8.self)) ?? 0
+                
+                var brightnessLevel:Float = (Float(voltage)/1023) * 100
+                self.adjuster.value = brightnessLevel
+                
+                self.brightness.text = "\(Int(self.adjuster.value))"
+                
+                
+                
+                
+            }
             
             
         }
