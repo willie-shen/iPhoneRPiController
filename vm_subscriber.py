@@ -35,12 +35,14 @@ def on_connect(client, userdata, flags, rc):
 #Default message callback. Please use custom callbacks.
 def on_message(client, userdata, msg):
     
+    global voltageVal
     if(msg.topic == 'buttonpress'):
         voltageVal = int(str(msg.payload, "utf-8"))
         print("Light Value: {}".format(voltageVal))
 
 if __name__ == '__main__':
     #this section is covered in publisher_and_subscriber_example.py
+    
     voltageVal = 0
     client = mqtt.Client()
     client.on_message = on_message
