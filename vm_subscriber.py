@@ -51,7 +51,7 @@ if __name__ == '__main__':
     client.connect(host="eclipse.usc.edu", port=11000, keepalive=60)
     client.loop_start()
 
-    _thread.start_new_thread(dim, (client)) #https://www.tutorialspoint.com/python3/python_multithreading.htm
+    _thread.start_new_thread(dim, (client,)) #https://www.tutorialspoint.com/python3/python_multithreading.htm
     
     while True:
         
