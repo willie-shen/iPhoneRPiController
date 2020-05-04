@@ -23,7 +23,7 @@ def on_connect(client, userdata, flags, rc):
 def on_message(client, userdata, msg):
     
     if(msg.topic == 'buttonpress'):
-    voltageVal = int(str(msg.payload, "utf-8"))
+        voltageVal = int(str(msg.payload, "utf-8"))
         print("Light Value: {}".format(voltageVal))
 
 if __name__ == '__main__':
