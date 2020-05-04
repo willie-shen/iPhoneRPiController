@@ -34,14 +34,15 @@ class ViewController: UIViewController {
         
        //client.connect(host="eclipse.usc.edu", port=11000, keepalive=60)
         mqtt = CocoaMQTT(clientID: "123", host: "eclipse.usc.edu", port: 11000)
-
+        
         // ...
         mqtt.subscribe("buttonpress")
         mqtt.subscribe("dimUpdate")
         
         mqtt.didReceiveMessage = { mqtt, message, id in
             
-            if(message.topic == "buttonpress"){
+            print(message.topic)
+            if(message.topic == "dimUpdate"){
                 
                 //https://www.hackingwithswift.com/example-code/language/how-to-convert-data-to-a-string
                 var voltage:Int = Int(String(decoding:message.payload, as:UTF8.self)) ?? 0
@@ -51,6 +52,7 @@ class ViewController: UIViewController {
                 
                 self.brightness.text = "\(Int(self.adjuster.value))"
                 
+                print("received")
                 
                 
                 
