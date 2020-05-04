@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CocoaMQTT
+import CocoaAsyncSocket
 
 class ViewController: UIViewController {
 
@@ -14,6 +16,7 @@ class ViewController: UIViewController {
     
     //var currentValue:Double = 50.0
     
+    var mqtt: CocoaMQTT!
     @IBOutlet weak var adjuster: UISlider!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,11 +32,28 @@ class ViewController: UIViewController {
         
         //https://www.hackingwithswift.com/example-code/language/how-to-convert-a-float-to-an-int
         
+       //client.connect(host="eclipse.usc.edu", port=11000, keepalive=60)
+        mqtt = CocoaMQTT(clientID: "123", host: "eclipse.usc.edu", port: 11000)
+
+        // ...
+        mqtt.subscribe("buttonpress")
+        
+        mqtt.didReceiveMessage = { mqtt, message, id in
+            print("Message received in topic \(message.topic) with payload \(message.string!)")
+            
+            
+        }
+        _ = mqtt.connect()
+        
     }
 
     @IBAction func valueChanged(_ sender: Any) {
         brightness.text = "\(Int(adjuster.value))"
         
+        var brightness:Int = (Int)(1023 * (Double(Int(adjuster.value)) / 100.0))
+        var voltage:Double = Double(brightness * 5)/1023.0
+        
+        mqtt.publish("buttonpress", withString: "\(voltage)" )
     }
     
 }

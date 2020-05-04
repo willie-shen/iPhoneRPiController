@@ -11,6 +11,10 @@ import paho.mqtt.client as mqtt
 import time
 PORT = 4
 
+global voltageVal
+
+voltageVal = 0
+
 def on_connect(client, userdata, flags, rc):
     print("Connected to server (i.e., broker) with result code "+str(rc))
 
@@ -19,7 +23,8 @@ def on_connect(client, userdata, flags, rc):
 def on_message(client, userdata, msg):
     
     if(msg.topic == 'buttonpress'):
-        print(str(msg.payload, "utf-8"))
+    voltageVal = int(str(msg.payload, "utf-8"))
+        print("Light Value: {}".format(voltageVal))
 
 if __name__ == '__main__':
     #this section is covered in publisher_and_subscriber_example.py
