@@ -19,9 +19,13 @@ voltageVal = 0
 def dim():
 
     global voltageVal
-    if voltageVal != 0:
-        voltageVal -= 1;
-        time.sleep(10)
+    
+    while(1):
+        if voltageVal != 0:
+            voltageVal -= 1;
+            print("Light Value: {}".format(voltageVal))
+            time.sleep(10)
+            
 def on_connect(client, userdata, flags, rc):
     print("Connected to server (i.e., broker) with result code "+str(rc))
 
