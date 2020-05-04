@@ -53,7 +53,7 @@ class ViewController: UIViewController {
         var brightness:Int = (Int)(1023 * (Double(Int(adjuster.value)) / 100.0))
         var voltage:Double = Double(brightness * 5)/1023.0
         
-        mqtt.publish("buttonpress", withString: "\(voltage)" )
+        mqtt.publish("buttonpress", withString: "\(brightness)" )
     }
     
 }
