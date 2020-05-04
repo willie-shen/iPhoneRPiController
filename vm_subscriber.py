@@ -18,6 +18,7 @@ voltageVal = 0
 
 def dim():
 
+    print("Dim function activated")
     global voltageVal
     
     while True:
