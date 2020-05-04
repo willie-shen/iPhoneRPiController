@@ -9,7 +9,8 @@ Run vm_subscriber.py in a separate terminal on your VM."""
 
 import paho.mqtt.client as mqtt
 import time
-import thread
+import _thread #https://raspberrypi.stackexchange.com/questions/22444/importerror-no-module-named-thread/22464
+
 PORT = 4
 
 global voltageVal
@@ -39,7 +40,7 @@ if __name__ == '__main__':
     client.connect(host="eclipse.usc.edu", port=11000, keepalive=60)
     client.loop_start()
 
-    thread.start_new_thread(dim, )
+    _thread.start(dim, ())
     
     while True:
         
