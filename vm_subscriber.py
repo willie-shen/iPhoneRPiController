@@ -14,7 +14,6 @@ import _thread #https://raspberrypi.stackexchange.com/questions/22444/importerro
 PORT = 4
 
 global voltageVal
-
 voltageVal = 0
 
 def dim():
@@ -34,6 +33,7 @@ def on_message(client, userdata, msg):
 
 if __name__ == '__main__':
     #this section is covered in publisher_and_subscriber_example.py
+    voltageVal = 0
     client = mqtt.Client()
     client.on_message = on_message
     client.on_connect = on_connect
