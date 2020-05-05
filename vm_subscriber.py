@@ -14,19 +14,37 @@ import _thread #https://raspberrypi.stackexchange.com/questions/22444/importerro
 PORT = 4
 
 #global voltageVal
-voltageVal = 0
+brightness = 0
+
+def on_press(key):
+    try:
+        k = key.char # single-char keys
+    except:
+        k = key.name # other keys
+
+    if k == 'w':
+        brightness += 1
+    #send "w" character to other console
+        client.publish("updateBrightness", "{}".format(brightness))
+
+    elif k == 'd':
+    
+    # send "d" character to other console
+        brightness -= 1
+        client.publish("updateBrightness", "{}".format(brightness))
 
 def dim(client):
 
     print("Dim function activated")
-    global voltageVal
+    global brightness
     #https://www.geeksforgeeks.org/global-local-variables-python/
     while True:
         #print("Running")
-        if voltageVal != 0:
-            voltageVal -= 1
+        if brightness != 0:
+            brightness -= 1
+            voltageVal = (brightness/100.0) * 1023
             print("Light Value: {}".format(voltageVal))
-            client.publish("dimUpdate", "{}".format(voltageVal))
+            client.publish("dimUpdate", "{}".format(brightness))
         time.sleep(1)
             
 def on_connect(client, userdata, flags, rc):
@@ -34,19 +52,23 @@ def on_connect(client, userdata, flags, rc):
 
     client.subscribe("buttonpress")
     client.subscribe("dimUpdate")
+    client.subscribe("updateBrightness")
 #Default message callback. Please use custom callbacks.
 def on_message(client, userdata, msg):
     
     print(str(msg.payload, "utf-8"))
-    global voltageVal
+    global brightness
     if(msg.topic == 'buttonpress'):
-        voltageVal = int(str(msg.payload, "utf-8"))
+        brightness = int(str(msg.payload, "utf-8"))
+        voltageVal = (brightness/100.0) * 1023
         print("Light Value: {}".format(voltageVal))
 
 if __name__ == '__main__':
     #this section is covered in publisher_and_subscriber_example.py
     
-    voltageVal = 0
+    brightness = 0
+    lis = keyboard.Listener(on_press=on_press)
+
     client = mqtt.Client()
     client.on_message = on_message
     client.on_connect = on_connect

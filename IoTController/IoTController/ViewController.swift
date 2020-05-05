@@ -79,7 +79,7 @@ class ViewController: UIViewController, CocoaMQTTDelegate {
         var brightness:Int = (Int)(1023 * (Double(Int(adjuster.value)) / 100.0))
         var voltage:Double = Double(brightness * 5)/1023.0
         
-        mqtt.publish("buttonpress", withString: "\(brightness)" )
+        mqtt.publish("buttonpress", withString: "\(Int(adjuster.value))" )
     }
     
     func mqttDidPing(_ mqtt: CocoaMQTT) {
@@ -97,6 +97,7 @@ class ViewController: UIViewController, CocoaMQTTDelegate {
     func mqtt(_ mqtt: CocoaMQTT, didConnectAck ack: CocoaMQTTConnAck) {
         mqtt.subscribe("buttonpress")
         mqtt.subscribe("dimUpdate")
+        mqtt.subscribe("updateBrightness")
         print("Connected")
     }
     
@@ -110,21 +111,26 @@ class ViewController: UIViewController, CocoaMQTTDelegate {
     
     func mqtt(_ mqtt: CocoaMQTT, didReceiveMessage message: CocoaMQTTMessage, id: UInt16) {
         print(message.topic)
-                   if(message.topic == "dimUpdate"){
+        if(message.topic == "dimUpdate" || message.topic == "updateBrightness"){
                        
                        //https://www.hackingwithswift.com/example-code/language/how-to-convert-data-to-a-string
-                       var voltage:Int = Int(String(decoding:message.payload, as:UTF8.self)) ?? 0
+                       //var voltage:Int = Int(String(decoding:message.payload, as:UTF8.self)) ?? 0
                        
-                       var brightnessLevel:Float = (Float(voltage)/1023) * 100
-                       self.adjuster.value = brightnessLevel
+                       //var brightnessLevel:Float = (Float(voltage)/1023) * 100
+            
+                    var brightnessLevel = Float(String(decoding:message.payload, as:UTF8.self))
+                    self.adjuster.value = brightnessLevel!
                        
-                       self.brightness.text = "\(Int(self.adjuster.value))"
+            self.brightness.text = "\(Int(brightnessLevel!))"
                        
                        print("received")
                        
                        
                        
                    }
+        
+       
+        
     }
     
     func mqtt(_ mqtt: CocoaMQTT, didSubscribeTopic topics: [String]) {
