@@ -9,7 +9,8 @@ Run vm_subscriber.py in a separate terminal on your VM."""
 
 import paho.mqtt.client as mqtt
 import time
-import _thread #https://raspberrypi.stackexchange.com/questions/22444/importerror-no-module-named-thread/22464
+import _thread
+from pynput import keyboard #https://raspberrypi.stackexchange.com/questions/22444/importerror-no-module-named-thread/22464
 
 PORT = 4
 
