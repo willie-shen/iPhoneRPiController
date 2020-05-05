@@ -22,11 +22,11 @@ def dim(client):
     global voltageVal
     #https://www.geeksforgeeks.org/global-local-variables-python/
     while True:
-        print("Running")
+        #print("Running")
         if voltageVal != 0:
             voltageVal -= 1
             print("Light Value: {}".format(voltageVal))
-            client.publish("dimUpdate", voltageVal)
+            client.publish("dimUpdate", "{}".format(voltageVal))
         time.sleep(1)
             
 def on_connect(client, userdata, flags, rc):
@@ -37,6 +37,7 @@ def on_connect(client, userdata, flags, rc):
 #Default message callback. Please use custom callbacks.
 def on_message(client, userdata, msg):
     
+    print(str(msg.payload, "utf-8"))
     global voltageVal
     if(msg.topic == 'buttonpress'):
         voltageVal = int(str(msg.payload, "utf-8"))
@@ -49,7 +50,7 @@ if __name__ == '__main__':
     client = mqtt.Client()
     client.on_message = on_message
     client.on_connect = on_connect
-    client.connect(host="eclipse.usc.edu", port=11000, keepalive=60)
+    client.connect(host="54.197.16.207", port=1883, keepalive=60)
     client.loop_start()
 
     _thread.start_new_thread(dim, (client,)) #https://www.tutorialspoint.com/python3/python_multithreading.htm
