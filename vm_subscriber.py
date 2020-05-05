@@ -22,17 +22,26 @@ def on_press(key):
         k = key.char # single-char keys
     except:
         k = key.name # other keys
-
+    global brightness
     if k == 'w':
-        brightness += 1
+
+    	if brightness >= 0 and brightness < 100:
+        	brightness += 1
     #send "w" character to other console
-        client.publish("updateBrightness", "{}".format(brightness))
+    #https://www.w3resource.com/python/built-in-function/int.php
+        	voltageVal = int((brightness/100.0) * 1023)
+        	print("Light Value: {}".format(voltageVal))
+
+        	client.publish("updateBrightness", "{}".format(brightness))
 
     elif k == 'd':
     
     # send "d" character to other console
-        brightness -= 1
-        client.publish("updateBrightness", "{}".format(brightness))
+    	if brightness <= 100 and brightness > 0:
+        	brightness -= 1
+        	voltageVal = int((brightness/100.0) * 1023)
+        	print("Light Value: {}".format(voltageVal))
+        	client.publish("updateBrightness", "{}".format(brightness))
 
 def dim(client):
 
@@ -43,7 +52,7 @@ def dim(client):
         #print("Running")
         if brightness != 0:
             brightness -= 1
-            voltageVal = (brightness/100.0) * 1023
+            voltageVal = int((brightness/100.0) * 1023)
             print("Light Value: {}".format(voltageVal))
             client.publish("dimUpdate", "{}".format(brightness))
         time.sleep(1)
@@ -61,7 +70,7 @@ def on_message(client, userdata, msg):
     global brightness
     if(msg.topic == 'buttonpress'):
         brightness = int(str(msg.payload, "utf-8"))
-        voltageVal = (brightness/100.0) * 1023
+        voltageVal = int((brightness/100.0) * 1023)
         print("Light Value: {}".format(voltageVal))
 
 if __name__ == '__main__':
@@ -69,7 +78,7 @@ if __name__ == '__main__':
     
     brightness = 0
     lis = keyboard.Listener(on_press=on_press)
-
+    lis.start()
     client = mqtt.Client()
     client.on_message = on_message
     client.on_connect = on_connect
