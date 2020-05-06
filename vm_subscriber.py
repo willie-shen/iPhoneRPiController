@@ -29,6 +29,11 @@ def off():
 
     averageTime = totalOn / turnedOn
 
+    totalHour = int(totalOn / 3600)
+    totalMin = int(totalOn % 3600)
+
+    averageHour = averageTime / 3600
+    averageMin = averageTime % 3600
     print("Light was on for {}".format(timeElapsed))
     print("Average time on is {}".format(averageTime))
 
