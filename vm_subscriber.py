@@ -37,8 +37,8 @@ def off():
     averageMin = int(averageTime % 3600)
     averageSeconds = int(averageTime) - (averageHour * 3600) - (averageMin * 60)
 
-    print("Light was on for {} hours {} minutes {} seconds".format(timeElapsed))
-    print("Average time on is {} hours {} minutes {} seconds".format(averageTime))
+    print("Light was on for {0} hours {1} minutes {2} seconds".format(totalHour, totalMin, totalSeconds))
+    print("Average time on is {0} hours {1} minutes {2} seconds".format(averageHour, averageMin, averageSeconds))
 
 
 
