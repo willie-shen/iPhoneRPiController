@@ -17,6 +17,28 @@ PORT = 4
 #global voltageVal
 brightness = 0
 
+onStart = 0
+turnedOn = 0
+totalOn = 0
+
+def off():
+    global onStart, turnedOn, totalOn
+    timeElapsed = time.time() - onStart
+
+    totalOn += timeElapsed
+
+    averageTime = timeElapsed / totalOn
+
+    print("Average time on is {}".format(averageTime))
+
+
+
+
+def start():
+    global onStart, turnedOn
+    onStart = time.time()
+    turnedOn += 1
+
 def on_press(key):
     try:
         k = key.char # single-char keys
@@ -25,23 +47,30 @@ def on_press(key):
     global brightness
     if k == 'w':
 
-    	if brightness >= 0 and brightness < 100:
-        	brightness += 1
+        if brightness >= 0 and brightness < 100:
+
+            if brightness == 0:
+                start()
+
+            brightness += 1
     #send "w" character to other console
     #https://www.w3resource.com/python/built-in-function/int.php
-        	voltageVal = int((brightness/100.0) * 1023)
-        	print("Light Value: {}".format(voltageVal))
+            voltageVal = int((brightness/100.0) * 1023)
+            print("Light Value: {}".format(voltageVal))
 
-        	client.publish("updateBrightness", "{}".format(brightness))
+            client.publish("updateBrightness", "{}".format(brightness))
 
     elif k == 'd':
     
     # send "d" character to other console
-    	if brightness <= 100 and brightness > 0:
-        	brightness -= 1
-        	voltageVal = int((brightness/100.0) * 1023)
-        	print("Light Value: {}".format(voltageVal))
-        	client.publish("updateBrightness", "{}".format(brightness))
+        if brightness <= 100 and brightness > 0:
+            brightness -= 1
+            voltageVal = int((brightness/100.0) * 1023)
+            print("Light Value: {}".format(voltageVal))
+            client.publish("updateBrightness", "{}".format(brightness))
+
+            if brightness == 0:
+                off()
 
 def dim(client):
 
@@ -55,6 +84,9 @@ def dim(client):
             voltageVal = int((brightness/100.0) * 1023)
             print("Light Value: {}".format(voltageVal))
             client.publish("dimUpdate", "{}".format(brightness))
+
+            if brightness == 0:
+                off()
         time.sleep(1)
             
 def on_connect(client, userdata, flags, rc):
@@ -69,7 +101,13 @@ def on_message(client, userdata, msg):
     print(str(msg.payload, "utf-8"))
     global brightness
     if(msg.topic == 'buttonpress'):
+
+        if brightness == 0:
+            start()
         brightness = int(str(msg.payload, "utf-8"))
+
+        if brightness == 0:
+            off()
         voltageVal = int((brightness/100.0) * 1023)
         print("Light Value: {}".format(voltageVal))
 
