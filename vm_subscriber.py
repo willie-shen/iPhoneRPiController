@@ -27,8 +27,9 @@ def off():
 
     totalOn += timeElapsed
 
-    averageTime = timeElapsed / totalOn
+    averageTime = totalOn / turnedOn
 
+    print("Light was on for {}".format(timeElapsed))
     print("Average time on is {}".format(averageTime))
 
 
