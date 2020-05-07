@@ -3,6 +3,9 @@ Members:
 Willie Shen
 Michael Cross
 
+Repository Link:
+https://github.com/willie-shen/iPhoneRPiController
+
 
 Instructions
 
