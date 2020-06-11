@@ -3,10 +3,13 @@
 
 const Alexa = require("ask-sdk");
 const https = require("https");
+const mqtt = require("mqtt");
+
+//set up the mqtt
+var client = mqtt.connect([{host:"54.197.16.2017", port:1883}])
 
 
-
-const invocationName = "lambda tester";
+const invocationName = "iot light controller";
 
 // Session Attributes 
 //   Alexa will track attributes for you, by default only during the lifespan of your session.
@@ -42,6 +45,25 @@ const maxHistorySize = 20; // remember only latest 20 intents
 
 
 // 1. Intent Handlers =============================================
+
+const AMAZON_FallbackIntent_Handler =  {
+    canHandle(handlerInput) {
+        const request = handlerInput.requestEnvelope.request;
+        return request.type === 'IntentRequest' && request.intent.name === 'AMAZON.FallbackIntent' ;
+    },
+    handle(handlerInput) {
+        const request = handlerInput.requestEnvelope.request;
+        const responseBuilder = handlerInput.responseBuilder;
+        let sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
+
+        let previousSpeech = getPreviousSpeechOutput(sessionAttributes);
+
+        return responseBuilder
+            .speak('Sorry I didnt catch what you said, ' + stripSpeak(previousSpeech.outputSpeech))
+            .reprompt(stripSpeak(previousSpeech.reprompt))
+            .getResponse();
+    },
+};
 
 const AMAZON_CancelIntent_Handler =  {
     canHandle(handlerInput) {
@@ -133,118 +155,21 @@ const AMAZON_NavigateHomeIntent_Handler =  {
     },
 };
 
-const AMAZON_YesIntent_Handler =  {
+//Used to turn off the light
+const turnOff_Handler =  {
     canHandle(handlerInput) {
         const request = handlerInput.requestEnvelope.request;
-        return request.type === 'IntentRequest' && request.intent.name === 'AMAZON.YesIntent' ;
+        return request.type === 'IntentRequest' && request.intent.name === 'turnOff' ;
     },
     handle(handlerInput) {
         const request = handlerInput.requestEnvelope.request;
         const responseBuilder = handlerInput.responseBuilder;
         let sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
 
-        let say = 'You said Yes. ';
-        let previousIntent = getPreviousIntent(sessionAttributes);
+        let say = 'Hello from turnOff. ';
 
-        if (previousIntent && !handlerInput.requestEnvelope.session.new) {
-            say += 'Your last intent was ' + previousIntent + '. ';
-        }
-
-        return responseBuilder
-            .speak(say)
-            .reprompt('try again, ' + say)
-            .getResponse();
-    },
-};
-
-const AMAZON_FallbackIntent_Handler =  {
-    canHandle(handlerInput) {
-        const request = handlerInput.requestEnvelope.request;
-        return request.type === 'IntentRequest' && request.intent.name === 'AMAZON.FallbackIntent' ;
-    },
-    handle(handlerInput) {
-        const request = handlerInput.requestEnvelope.request;
-        const responseBuilder = handlerInput.responseBuilder;
-        let sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
-
-        let previousSpeech = getPreviousSpeechOutput(sessionAttributes);
-
-        return responseBuilder
-            .speak('Sorry I didnt catch what you said, ' + stripSpeak(previousSpeech.outputSpeech))
-            .reprompt(stripSpeak(previousSpeech.reprompt))
-            .getResponse();
-    },
-};
-
-const AMAZON_NoIntent_Handler =  {
-    canHandle(handlerInput) {
-        const request = handlerInput.requestEnvelope.request;
-        return request.type === 'IntentRequest' && request.intent.name === 'AMAZON.NoIntent' ;
-    },
-    handle(handlerInput) {
-        const request = handlerInput.requestEnvelope.request;
-        const responseBuilder = handlerInput.responseBuilder;
-        let sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
-
-        let say = 'You said No. ';
-        let previousIntent = getPreviousIntent(sessionAttributes);
-
-        if (previousIntent && !handlerInput.requestEnvelope.session.new) {
-            say += 'Your last intent was ' + previousIntent + '. ';
-        }
-
-        return responseBuilder
-            .speak(say)
-            .reprompt('try again, ' + say)
-            .getResponse();
-    },
-};
-
-const NumberGuessIntent_Handler =  {
-    canHandle(handlerInput) {
-        const request = handlerInput.requestEnvelope.request;
-        return request.type === 'IntentRequest' && request.intent.name === 'NumberGuessIntent' ;
-    },
-    handle(handlerInput) {
-        const request = handlerInput.requestEnvelope.request;
-        const responseBuilder = handlerInput.responseBuilder;
-        let sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
-
-        let say = 'Hello from NumberGuessIntent. ';
-
-        let slotStatus = '';
-        let resolvedSlot;
-
-        let slotValues = getSlotValues(request.intent.slots); 
-        // getSlotValues returns .heardAs, .resolved, and .isValidated for each slot, according to request slot status codes ER_SUCCESS_MATCH, ER_SUCCESS_NO_MATCH, or traditional simple request slot without resolutions
-
-        // console.log('***** slotValues: ' +  JSON.stringify(slotValues, null, 2));
-        //   SLOT: number 
-        if (slotValues.number.heardAs) {
-            slotStatus += ' slot number was heard as ' + slotValues.number.heardAs + '. ';
-        } else {
-            slotStatus += 'slot number is empty. ';
-        }
-        if (slotValues.number.ERstatus === 'ER_SUCCESS_MATCH') {
-            slotStatus += 'a valid ';
-            if(slotValues.number.resolved !== slotValues.number.heardAs) {
-                slotStatus += 'synonym for ' + slotValues.number.resolved + '. '; 
-                } else {
-                slotStatus += 'match. '
-            } // else {
-                //
-        }
-        if (slotValues.number.ERstatus === 'ER_SUCCESS_NO_MATCH') {
-            slotStatus += 'which did not match any slot value. ';
-            console.log('***** consider adding "' + slotValues.number.heardAs + '" to the custom slot type used by slot number! '); 
-        }
-
-        if( (slotValues.number.ERstatus === 'ER_SUCCESS_NO_MATCH') ||  (!slotValues.number.heardAs) ) {
-            slotStatus += 'A few valid values are, ' + sayArray(getExampleSlotValues('NumberGuessIntent','number'), 'or');
-        }
-
-        say += slotStatus;
-
+        //set the brightness to 0
+        client.publish("buttonpress", "0")
 
         return responseBuilder
             .speak(say)
@@ -261,7 +186,7 @@ const LaunchRequest_Handler =  {
     handle(handlerInput) {
         const responseBuilder = handlerInput.responseBuilder;
 
-        let say = 'hello Willie' + ' and welcome to ' + invocationName + ' ! Say help to hear some options.';
+        let say = 'hello' + ' and welcome to ' + invocationName + ' ! Say help to hear some options.';
 
         let skillTitle = capitalize(invocationName);
 
@@ -684,14 +609,12 @@ const ResponsePersistenceInterceptor = {
 const skillBuilder = Alexa.SkillBuilders.standard();
 exports.handler = skillBuilder
     .addRequestHandlers(
+        AMAZON_FallbackIntent_Handler, 
         AMAZON_CancelIntent_Handler, 
         AMAZON_HelpIntent_Handler, 
         AMAZON_StopIntent_Handler, 
         AMAZON_NavigateHomeIntent_Handler, 
-        AMAZON_YesIntent_Handler, 
-        AMAZON_FallbackIntent_Handler, 
-        AMAZON_NoIntent_Handler, 
-        NumberGuessIntent_Handler, 
+        turnOff_Handler, 
         LaunchRequest_Handler, 
         SessionEndedHandler
     )
@@ -716,13 +639,17 @@ exports.handler = skillBuilder
 const model = {
   "interactionModel": {
     "languageModel": {
-      "invocationName": "lambda tester",
+      "invocationName": "iot light controller",
       "modelConfiguration": {
         "fallbackIntentSensitivity": {
           "level": "LOW"
         }
       },
       "intents": [
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
         {
           "name": "AMAZON.CancelIntent",
           "samples": []
@@ -740,30 +667,10 @@ const model = {
           "samples": []
         },
         {
-          "name": "AMAZON.YesIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.FallbackIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.NoIntent",
-          "samples": []
-        },
-        {
-          "name": "NumberGuessIntent",
-          "slots": [
-            {
-              "name": "number",
-              "type": "AMAZON.NUMBER"
-            }
-          ],
+          "name": "turnOff",
+          "slots": [],
           "samples": [
-            "{number}",
-            "is it {number}",
-            "how about {number}",
-            "could be {number}"
+            "turn off the light"
           ]
         },
         {
