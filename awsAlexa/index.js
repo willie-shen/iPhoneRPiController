@@ -175,23 +175,25 @@ const turnOff_Handler =  {
 
         //set the brightness to 0
 
-        var client = mqtt.connect("mqtt://54.197.16.207")
+        var client = mqtt.connect("mqtt://54.197.16.207");
 
         console.log(client)
 
-        //client.on('connect', function(){
-           // client.subscribe("buttonpress")
+        client.on('connect', function(){
+            client.subscribe("buttonpress")
            // console.log("Connected");
            // console.log("Alexa functions")
             client.publish("buttonpress", "0")
+             client.end()
 
+             console.log("Turned off Light")
 
-        //})
-        client.end(true)
+        });
+       
 
-        console.log("Disconnecting")
+        console.log("Disconnecting");
 
-        console.log("After publish")
+        console.log("After publish");
 
         
         //check to see if this part is being printed out
