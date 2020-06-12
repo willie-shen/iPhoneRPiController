@@ -3,10 +3,10 @@
 
 const Alexa = require("ask-sdk");
 const https = require("https");
-const mqtt = require("mqtt");
+const mqtt = require("mqtt")
 
 //set up the mqtt
-var client = mqtt.connect([{host:"54.197.16.2017", port:1883}])
+
 
 
 const invocationName = "iot light controller";
@@ -15,6 +15,11 @@ const invocationName = "iot light controller";
 //   Alexa will track attributes for you, by default only during the lifespan of your session.
 //   The history[] array will track previous request(s), used for contextual Help/Yes/No handling.
 //   Set up DynamoDB persistence to have the skill save and reload these attributes between skill sessions.
+
+
+
+
+
 
 function getMemoryAttributes() {   const memoryAttributes = {
        "history":[],
@@ -166,10 +171,30 @@ const turnOff_Handler =  {
         const responseBuilder = handlerInput.responseBuilder;
         let sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
 
-        let say = 'Hello from turnOff. ';
+        let say = 'Hello from turnOff. Turning off the light';
 
         //set the brightness to 0
-        client.publish("buttonpress", "0")
+
+        var client = mqtt.connect("mqtt://54.197.16.207")
+
+        console.log(client)
+
+        //client.on('connect', function(){
+           // client.subscribe("buttonpress")
+           // console.log("Connected");
+           // console.log("Alexa functions")
+            client.publish("buttonpress", "0")
+
+
+        //})
+        client.end(true)
+
+        console.log("Disconnecting")
+
+        console.log("After publish")
+
+        
+        //check to see if this part is being printed out
 
         return responseBuilder
             .speak(say)
