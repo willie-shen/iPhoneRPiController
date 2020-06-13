@@ -181,9 +181,11 @@ const turnOff_Handler =  {
 
         client.on('connect', function(){
             client.subscribe("buttonpress")
+            client.subscribe("dimUpdate")
            // console.log("Connected");
            // console.log("Alexa functions")
             client.publish("buttonpress", "0")
+            client.publish("dimUpdate", "0");
              client.end()
 
              console.log("Turned off Light")
