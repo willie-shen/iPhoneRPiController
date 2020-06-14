@@ -207,6 +207,96 @@ const turnOff_Handler =  {
     },
 };
 
+const SetBrightnessIntent_Handler =  {
+    canHandle(handlerInput) {
+        console.log("Setting the brightness")
+        const request = handlerInput.requestEnvelope.request;
+
+
+        console.log(request.type === 'IntentRequest' && request.intent.name === 'SetBrightnessIntent' )
+
+        if(request.type === 'IntentRequest'){
+            console.log(request.intent.name)
+        }
+        return request.type === 'IntentRequest' && request.intent.name === 'SetBrightnessIntent' ;
+    },
+    handle(handlerInput) {
+        const request = handlerInput.requestEnvelope.request;
+        const responseBuilder = handlerInput.responseBuilder;
+        let sessionAttributes = handlerInput.attributesManager.getSessionAttributes();
+
+        console.log("In the handle function for the brightness handler")
+
+        // delegate to Alexa to collect all the required slots 
+        const currentIntent = request.intent; 
+        if (request.dialogState && request.dialogState !== 'COMPLETED') { 
+            return handlerInput.responseBuilder
+                .addDelegateDirective(currentIntent)
+                .getResponse();
+
+        } 
+        let say = 'Hello from SetBrightnessIntent. ';
+
+        let slotStatus = '';
+        let resolvedSlot;
+
+        let slotValues = getSlotValues(request.intent.slots); 
+        // getSlotValues returns .heardAs, .resolved, and .isValidated for each slot, according to request slot status codes ER_SUCCESS_MATCH, ER_SUCCESS_NO_MATCH, or traditional simple request slot without resolutions
+        console.log(slotValues.brightness)
+        // console.log('***** slotValues: ' +  JSON.stringify(slotValues, null, 2));
+        //   SLOT: brightness 
+        if (slotValues.brightness.heardAs) {
+            slotStatus += ' Setting the brightness to ' + slotValues.brightness.heardAs + '. ';
+
+            var client = mqtt.connect("mqtt://54.197.16.207");
+
+        console.log(client)
+
+        client.on('connect', function(){
+            client.subscribe("buttonpress")
+            client.subscribe("dimUpdate")
+           // console.log("Connected");
+           // console.log("Alexa functions")
+            client.publish("buttonpress", slotValues.brightness.heardAs)
+            client.publish("dimUpdate", slotValues.brightness.heardAs);
+             client.end()
+
+             console.log("Turned off Light")
+
+        });
+
+        } else {
+            slotStatus += 'slot brightness is empty. ';
+        }
+        if (slotValues.brightness.ERstatus === 'ER_SUCCESS_MATCH') {
+            slotStatus += 'a valid ';
+            if(slotValues.brightness.resolved !== slotValues.brightness.heardAs) {
+                slotStatus += 'synonym for ' + slotValues.brightness.resolved + '. '; 
+                } else {
+                slotStatus += 'match. '
+            } // else {
+                //
+        }
+        if (slotValues.brightness.ERstatus === 'ER_SUCCESS_NO_MATCH') {
+            slotStatus += 'which did not match any slot value. ';
+            console.log('***** consider adding "' + slotValues.brightness.heardAs + '" to the custom slot type used by slot brightness! '); 
+        }
+
+        if( (slotValues.brightness.ERstatus === 'ER_SUCCESS_NO_MATCH') ||  (!slotValues.brightness.heardAs) ) {
+            slotStatus += 'A few valid values are, ' + sayArray(getExampleSlotValues('SetBrightnessIntent','brightness'), 'or');
+        }
+
+        say += slotStatus;
+
+
+        return responseBuilder
+            .speak(say)
+            .reprompt('try again, ' + say)
+            .getResponse();
+    },
+};
+
+
 const LaunchRequest_Handler =  {
     canHandle(handlerInput) {
         const request = handlerInput.requestEnvelope.request;
@@ -257,6 +347,8 @@ const ErrorHandler =  {
             .getResponse();
     }
 };
+
+
 
 
 // 2. Constants ===========================================================================
@@ -644,6 +736,7 @@ exports.handler = skillBuilder
         AMAZON_StopIntent_Handler, 
         AMAZON_NavigateHomeIntent_Handler, 
         turnOff_Handler, 
+        SetBrightnessIntent_Handler,
         LaunchRequest_Handler, 
         SessionEndedHandler
     )
@@ -703,10 +796,113 @@ const model = {
           ]
         },
         {
+          "name": "SetBrightnessIntent",
+          "slots": [
+            {
+              "name": "brightness",
+              "type": "AMAZON.NUMBER",
+              "samples": [
+                "set brightness to {brightness}",
+                "set the brightness to {brightness}",
+                "{brightness}"
+              ]
+            }
+          ],
+          "samples": [
+            "set brightness to {brightness}",
+            "set the brightness to {brightness}"
+          ]
+        },
+        {
           "name": "LaunchRequest"
         }
       ],
       "types": []
-    }
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "SetBrightnessIntent",
+          "delegationStrategy": "ALWAYS",
+          "confirmationRequired": true,
+          "prompts": {
+            "confirmation": "Confirm.Intent.847576699417"
+          },
+          "slots": [
+            {
+              "name": "brightness",
+              "type": "AMAZON.NUMBER",
+              "confirmationRequired": true,
+              "elicitationRequired": true,
+              "prompts": {
+                "confirmation": "Confirm.Slot.754410844416.1493994850694",
+                "elicitation": "Elicit.Slot.754410844416.1493994850694"
+              },
+              "validations": [
+                {
+                  "type": "isLessThanOrEqualTo",
+                  "prompt": "Slot.Validation.754410844416.1493994850694.1407317799033",
+                  "value": "100"
+                },
+                {
+                  "type": "isGreaterThanOrEqualTo",
+                  "prompt": "Slot.Validation.754410844416.1493994850694.1447488267576",
+                  "value": "0"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Slot.Validation.754410844416.1493994850694.1407317799033",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Please set a brightness level between zero and one hundred"
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.754410844416.1493994850694.1447488267576",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Please set a brightness level between zero and one hundred"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.754410844416.1493994850694",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Please set a brightness level between zero and one hundred"
+          }
+        ]
+      },
+      {
+        "id": "Confirm.Slot.754410844416.1493994850694",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "OK, setting brightness to {brightness}"
+          }
+        ]
+      },
+      {
+        "id": "Confirm.Intent.847576699417",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "OK, setting brightness to {brightness}"
+          }
+        ]
+      }
+    ]
   }
 };
+
